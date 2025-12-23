@@ -1,4 +1,8 @@
-# Review Bot
+# ReviewCerberus
+
+<p align="center">
+  <img src="logo_256.png" alt="ReviewCerberus Logo" width="256" />
+</p>
 
 AI-powered code review tool that analyzes git branch differences and generates comprehensive review reports.
 
@@ -11,7 +15,39 @@ AI-powered code review tool that analyzes git branch differences and generates c
 - **Markdown Output**: Generates readable review reports
 - **Git Integration**: Works with any git repository
 
-## Installation
+## Quick Start (Docker - Recommended)
+
+**For AWS Bedrock:**
+```bash
+docker run --rm -it -v $(pwd):/repo \
+  -e AWS_ACCESS_KEY_ID=your_key \
+  -e AWS_SECRET_ACCESS_KEY=your_secret \
+  -e AWS_REGION_NAME=us-east-1 \
+  kirill89/reviewcerberus:latest \
+  --repo-path /repo --output /repo/review.md
+```
+
+**For Anthropic API:**
+```bash
+docker run --rm -it -v $(pwd):/repo \
+  -e MODEL_PROVIDER=anthropic \
+  -e ANTHROPIC_API_KEY=sk-ant-your-api-key \
+  kirill89/reviewcerberus:latest \
+  --repo-path /repo --output /repo/review.md
+```
+
+**With custom options:**
+```bash
+docker run --rm -it -v $(pwd):/repo \
+  -e MODEL_PROVIDER=anthropic \
+  -e ANTHROPIC_API_KEY=sk-ant-your-api-key \
+  kirill89/reviewcerberus:latest \
+  --repo-path /repo --target-branch develop --output /repo/review.md
+```
+
+## Installation (Development)
+
+If you want to modify or develop ReviewCerberus:
 
 1. Clone the repository
 2. Install dependencies:
@@ -51,35 +87,35 @@ RECURSION_LIMIT=200
 
 Review current branch against `main`:
 ```bash
-poetry run review-bot
+poetry run reviewcerberus
 ```
 
 ### Custom Target Branch
 
 Review against a different branch:
 ```bash
-poetry run review-bot --target-branch develop
+poetry run reviewcerberus --target-branch develop
 ```
 
 ### Custom Output File
 
 Specify output file location:
 ```bash
-poetry run review-bot --output my-review.md
+poetry run reviewcerberus --output my-review.md
 ```
 
 ### Review Different Repository
 
 Review a repository outside current directory:
 ```bash
-poetry run review-bot --repo-path /path/to/repo
+poetry run reviewcerberus --repo-path /path/to/repo
 ```
 
 ### Custom Instructions
 
 Provide additional instructions to the reviewer:
 ```bash
-poetry run review-bot --instructions review-guidelines.md
+poetry run reviewcerberus --instructions review-guidelines.md
 ```
 
 Example `review-guidelines.md`:
@@ -95,7 +131,7 @@ Example `review-guidelines.md`:
 ### Full Example
 
 ```bash
-poetry run review-bot --target-branch main --output review.md --instructions guidelines.md
+poetry run reviewcerberus --target-branch main --output review.md --instructions guidelines.md
 ```
 
 ## How It Works
@@ -182,6 +218,20 @@ Generated review includes:
 5. **Recommendations**: General improvement suggestions
 
 ## Development
+
+### Building Docker Image
+
+To build the Docker image locally:
+```bash
+make docker-build
+```
+
+To build and push to Docker Hub (multi-platform):
+```bash
+VERSION=0.1.0 make docker-build-push
+```
+
+See [DOCKER.md](DOCKER.md) for detailed Docker build and publish instructions.
 
 ### Run Tests
 

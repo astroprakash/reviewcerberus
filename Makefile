@@ -1,4 +1,4 @@
-.PHONY: test lint format
+.PHONY: test lint format docker-build docker-build-push
 
 test:
 	poetry run pytest -v
@@ -11,3 +11,12 @@ lint:
 format:
 	poetry run isort src tests
 	poetry run black src tests
+
+docker-build:
+	docker build -t kirill89/reviewcerberus:latest .
+
+docker-build-push:
+	docker buildx build --platform linux/amd64,linux/arm64 \
+		-t kirill89/reviewcerberus:latest \
+		-t kirill89/reviewcerberus:$(VERSION) \
+		--push .

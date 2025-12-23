@@ -80,7 +80,7 @@ Users can provide custom review guidelines via `--instructions` parameter, allow
 ## Project Structure
 
 ```
-review-bot/
+reviewcerberus/
 ├── src/
 │   ├── config.py                        # Configuration (env vars)
 │   ├── main.py                          # CLI entry point
@@ -260,19 +260,19 @@ elif MODEL_PROVIDER == "anthropic":
 
 ```bash
 # Basic usage
-poetry run review-bot
+poetry run reviewcerberus
 
 # Specify target branch
-poetry run review-bot --target-branch develop
+poetry run reviewcerberus --target-branch develop
 
 # Custom output file
-poetry run review-bot --output my-review.md
+poetry run reviewcerberus --output my-review.md
 
 # Specify repository path
-poetry run review-bot --repo-path /path/to/repo
+poetry run reviewcerberus --repo-path /path/to/repo
 
 # Additional review instructions
-poetry run review-bot --instructions guidelines.md
+poetry run reviewcerberus --instructions guidelines.md
 ```
 
 ---
