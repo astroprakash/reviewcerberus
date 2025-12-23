@@ -1,0 +1,19 @@
+# IDE
+.idea
+.vscode
+
+# Environment
+.env
+
+# Python
+**/*.pyc
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Poetry
+poetry.lock
+
+# Generated reviews
+review_*.md
