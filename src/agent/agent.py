@@ -5,6 +5,7 @@ from langchain.agents import create_agent
 from .checkpointer import checkpointer
 from .model import model
 from .schema import Context
+from .summarizing_middleware import SummarizingMiddleware
 from .system import SYSTEM_PROMPT
 from .tools import (
     changed_files,
@@ -19,12 +20,6 @@ from .tools import (
 def create_review_agent(additional_instructions: str | None = None) -> Any:
     """Create an agent with optional additional instructions in the system prompt.
 
-    The agent automatically manages context when reaching 100k tokens by injecting
-    a summarization request into its own loop. The agent generates a summary of its
-    findings, then the middleware cleans up old messages, keeping only the initial
-    request and the summary. This frees up ~95k tokens for continued analysis while
-    avoiding tool message serialization issues.
-
     Args:
         additional_instructions: Optional additional review guidelines to append
                                 to the system prompt
@@ -33,6 +28,7 @@ def create_review_agent(additional_instructions: str | None = None) -> Any:
         Configured agent instance with automatic in-loop summarization
     """
     system_prompt = SYSTEM_PROMPT
+
     if additional_instructions:
         system_prompt = (
             f"{SYSTEM_PROMPT}\n\n"
@@ -53,6 +49,9 @@ def create_review_agent(additional_instructions: str | None = None) -> Any:
         ],
         context_schema=Context,
         checkpointer=checkpointer,
+        middleware=[
+            SummarizingMiddleware(),
+        ],
     )
 
 
