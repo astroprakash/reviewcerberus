@@ -18,6 +18,7 @@ docker-build:
 	docker build -t kirill89/reviewcerberus-cli:latest .
 
 docker-build-push:
+	$(eval VERSION := $(shell poetry version -s))
 	docker buildx build --platform linux/amd64,linux/arm64 \
 		-t kirill89/reviewcerberus-cli:latest \
 		-t kirill89/reviewcerberus-cli:$(VERSION) \

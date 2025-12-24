@@ -250,8 +250,10 @@ make docker-build
 To build and push to Docker Hub (multi-platform):
 
 ```bash
-VERSION=0.1.0 make docker-build-push
+make docker-build-push
 ```
+
+The version is automatically read from `pyproject.toml`.
 
 See [DOCKER.md](DOCKER.md) for detailed Docker build and publish instructions.
 

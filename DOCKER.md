@@ -17,15 +17,18 @@ docker build -t kirill89/reviewcerberus-cli:latest .
 Build for multiple platforms (recommended for publishing):
 
 ```bash
-VERSION=0.1.0 make docker-build-push
+make docker-build-push
 ```
+
+The version is automatically read from `pyproject.toml`.
 
 Or directly with Docker:
 
 ```bash
+VERSION=$(poetry version -s)
 docker buildx build --platform linux/amd64,linux/arm64 \
   -t kirill89/reviewcerberus-cli:latest \
-  -t kirill89/reviewcerberus-cli:0.1.0 \
+  -t kirill89/reviewcerberus-cli:$VERSION \
   --push .
 ```
 
@@ -80,12 +83,19 @@ docker buildx build --platform linux/amd64,linux/arm64 \
 
 When releasing a new version:
 
-1. Update version in `pyproject.toml`
-2. Build and tag with version number:
+1. Update version in `pyproject.toml` (e.g., `poetry version 0.3.0`)
+2. Build and push (version is automatically tagged):
 
 ```bash
+make docker-build-push
+```
+
+Or with Docker directly:
+
+```bash
+VERSION=$(poetry version -s)
 docker buildx build --platform linux/amd64,linux/arm64 \
   -t kirill89/reviewcerberus-cli:latest \
-  -t kirill89/reviewcerberus-cli:X.Y.Z \
+  -t kirill89/reviewcerberus-cli:$VERSION \
   --push .
 ```
