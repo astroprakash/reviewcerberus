@@ -42,7 +42,8 @@ def parse_arguments() -> argparse.Namespace:
         help="Target branch to compare against (default: main)",
     )
     parser.add_argument(
-        "--output", help="Output file path (default: review_<branch_name>.md)"
+        "--output",
+        help="Output file path or directory (default: review_<branch_name>.md in current directory)",
     )
     parser.add_argument(
         "--instructions",
@@ -56,10 +57,18 @@ def sanitize_branch_name(branch: str) -> str:
 
 
 def determine_output_file(output: str | None, branch: str) -> str:
-    if output:
-        return output
     safe_branch_name = sanitize_branch_name(branch)
-    return f"review_{safe_branch_name}.md"
+    default_filename = f"review_{safe_branch_name}.md"
+
+    if not output:
+        return default_filename
+
+    # If output is a directory, append default filename
+    output_path = Path(output)
+    if output_path.is_dir():
+        return str(output_path / default_filename)
+
+    return output
 
 
 def print_summary(

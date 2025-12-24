@@ -118,6 +118,12 @@ Specify output file location:
 poetry run reviewcerberus --output my-review.md
 ```
 
+Or specify a directory (filename will be auto-generated):
+
+```bash
+poetry run reviewcerberus --output /path/to/reviews/
+```
+
 ### Review Different Repository
 
 Review a repository outside current directory:
