@@ -53,7 +53,3 @@ def create_review_agent(additional_instructions: str | None = None) -> Any:
             SummarizingMiddleware(),
         ],
     )
-
-
-# Default agent without additional instructions
-agent: Any = create_review_agent()
